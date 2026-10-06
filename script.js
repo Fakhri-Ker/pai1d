@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Siti Zahrotul Amelia", role: "PJ B. Arab", imgSeed: "Amel" },
         { nama: "Mila Nurjuliani", role: "PJ Cirebon Studies", imgSeed: "Mila" },
         { nama: "Resty Bilqis A.", role: "PJ Cirebon Studies", imgSeed: "Resty" },
-        { nama: "Fakhri A. Alfanani", role: "PJ Cyber Culture", imgSeed: "Fakhri" },
+        { nama: "Fakhri A. Alfanani", role: "PJ Cyber Culture", imgSeed: "Fakhri", ig: "https://www.instagram.com/mangeabanj/" },
         { nama: "Salwa Salsabil", role: "PJ Cyber Culture", imgSeed: "Salwa" },
         { nama: "Abdullah Fasya", role: "PJ Kitab Kuning", imgSeed: "Fasya-Kitab" },
         { nama: "Melinda Nurriyah", role: "PJ Kitab Kuning", imgSeed: "Melinda" },
