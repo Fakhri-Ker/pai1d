@@ -1,3 +1,8 @@
+yang belum :
+- ubah di index foto galery!!!
+
+
+
 # Website PAI 1D — Revisi
 
 Struktur yang disarankan saat diunggah ke GitHub:
