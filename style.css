@@ -1,7 +1,6 @@
-/* --- BASE STYLES --- */
 :root {
-    --bg-color: #1e2640; /* Warna biru navy gelap dari video */
-    --card-bg: #2a3454; /* Warna kartu anggota */
+    --bg-color: #1e2640;
+    --card-bg: #2a3454;
     --text-main: #ffffff;
     --text-muted: #a0aabf;
     --accent: #4cc9f0;
@@ -24,31 +23,41 @@ body {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR & HAMBURGER --- */
 nav {
     position: fixed;
     top: 0; width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 40px;
     z-index: 1000;
     transition: 0.3s;
-}
-
-nav.scrolled {
-    background-color: rgba(30, 38, 64, 0.95);
+    background-color: rgba(30, 38, 64, 0.9);
     backdrop-filter: blur(10px);
-    padding: 15px 50px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; }
 .logo-icon { width: 30px; height: 30px; background-color: var(--text-main); border-radius: 50%; }
 
-.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links { display: flex; gap: 25px; list-style: none; }
 .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
 .nav-links a:hover { color: var(--accent); }
+
+/* Tombol Hamburger (Default disembunyikan di Laptop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: var(--text-main);
+    border-radius: 3px;
+    transition: 0.3s;
+}
 
 /* --- HERO SECTION --- */
 .hero {
@@ -60,120 +69,121 @@ nav.scrolled {
     justify-content: center;
     text-align: center;
 }
-
 .hero-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(30, 38, 64, 0.6); /* Tint biru */
+    background: rgba(30, 38, 64, 0.7);
 }
+.hero-content { position: relative; z-index: 2; padding: 0 20px; }
+.badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin: 20px 0; }
+.hero p { font-size: 1rem; max-width: 600px; margin: 0 auto; color: var(--text-muted); }
 
-.hero-content { position: relative; z-index: 2; }
-.badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; }
-.hero h1 { font-size: 5rem; font-weight: 800; line-height: 1; margin: 20px 0; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-.hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+/* --- UMUM SECTION --- */
+.section { padding: 90px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
+.section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
+.section-desc { color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; font-size: 0.95rem; }
 
-/* --- UMUM UNTUK SECTION --- */
-.section { padding: 100px 10%; text-align: center; }
-.section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
-.section-desc { color: var(--text-muted); max-width: 700px; margin: 0 auto 50px; line-height: 1.6; }
-
-/* --- STATS TENTANG KELAS --- */
-.stats-container { display: flex; justify-content: center; gap: 50px; margin-top: 40px; }
-.stat-box h3 { font-size: 4rem; font-weight: 800; color: #fff; }
-.stat-box p { font-size: 1rem; color: var(--text-muted); font-weight: 600; letter-spacing: 2px; }
+/* --- STATS --- */
+.stats-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
+.stat-box h3 { font-size: 3.5rem; font-weight: 800; color: #fff; }
+.stat-box p { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; letter-spacing: 2px; }
 
 /* --- MEDIA SOSIAL --- */
-.media-container { 
-    display: flex; 
-    justify-content: center; 
-}
+.media-container { display: flex; justify-content: center; }
 .media-card { 
-    background: var(--card-bg); 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px; 
-    padding: 30px; 
-    width: 350px; /* Sedikit dilebarkan karena sekarang sendirian */
-    text-align: left; 
-    text-decoration: none; /* Menghilangkan garis bawah pada link */
-    transition: 0.3s;
-    display: block;
+    background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px; padding: 25px; width: 100%; max-width: 350px; 
+    text-align: left; text-decoration: none; transition: 0.3s; display: block; 
 }
-.media-header { 
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-    margin-bottom: 20px; 
-    font-weight: 600; 
-    color: var(--text-main);
-}
-.media-icon { 
-    width: 40px; 
-    height: 40px; 
-}
-.media-card h3 {
-    color: var(--text-main);
-    margin-bottom: 5px;
-}
-.media-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
+.media-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-weight: 600; color: var(--text-main); }
+.media-icon { width: 35px; height: 35px; }
+.media-card h3 { color: var(--text-main); margin-bottom: 5px; font-size: 1.1rem; }
+.media-card p { color: var(--text-muted); font-size: 0.85rem; }
+.ig-card:hover { transform: translateY(-5px); border-color: #e1306c; box-shadow: 0 10px 25px rgba(225, 48, 108, 0.2); }
 
-/* Efek Hover Khas Instagram */
-.ig-card:hover {
-    transform: translateY(-10px);
-    border-color: #e1306c; /* Warna pink Instagram */
-    box-shadow: 0 10px 30px rgba(225, 48, 108, 0.2); /* Bayangan pink */
-}
-
-/* --- STRUKTUR KELAS (Diagram) --- */
-.org-chart { display: flex; flex-direction: column; align-items: center; }
-.org-level { display: flex; justify-content: center; gap: 40px; }
+/* --- STRUKTUR KELAS --- */
+.org-chart { display: flex; flex-direction: column; align-items: center; width: 100%; overflow-x: auto; padding-bottom: 10px; }
+.org-level { display: flex; justify-content: center; gap: 20px; width: 100%; flex-wrap: wrap; }
 .org-box {
-    background: transparent;
+    background: var(--card-bg);
     border: 2px solid var(--accent);
-    border-radius: 30px;
-    padding: 15px 30px;
-    min-width: 200px;
+    border-radius: 20px;
+    padding: 15px 25px;
+    min-width: 160px;
+    text-align: center;
 }
-.org-box .role { display: block; font-size: 0.7rem; color: var(--accent); font-weight: 800; letter-spacing: 1px; }
-.org-box .name { font-size: 1rem; font-weight: 600; }
+.org-box .role { display: block; font-size: 0.65rem; color: var(--accent); font-weight: 800; letter-spacing: 1px; margin-bottom: 4px; }
+.org-box .name { font-size: 0.9rem; font-weight: 600; }
 .org-box.wali { background: rgba(76, 201, 240, 0.1); }
-.org-line-vertical { width: 2px; height: 30px; background-color: var(--accent); margin: 10px 0; }
+.org-line-vertical { width: 2px; height: 25px; background-color: var(--accent); margin: 8px 0; }
 
 /* --- ANGGOTA KELAS GRID --- */
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 Kolom mirip video */
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
 }
-
 .member-card {
     background: var(--card-bg);
     border-radius: 20px;
-    padding: 30px 20px;
+    padding: 25px 15px;
     transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
 }
-.member-card:hover { transform: translateY(-10px); }
-.member-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid rgba(255,255,255,0.1); }
-.member-name { font-size: 1rem; font-weight: 600; margin-bottom: 5px; }
+.member-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.member-img { width: 85px; height: 85px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; border: 2px solid var(--accent); }
+.member-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
 .member-ig { font-size: 0.8rem; color: var(--accent); text-decoration: none; }
 
-/* Pagination */
-.pagination { display: flex; justify-content: center; gap: 10px; }
-.pagination button { background: var(--card-bg); color: #fff; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: 600; }
-.pagination button.active { background: var(--text-main); color: var(--bg-color); }
-
 /* --- GALLERY --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Kolom gambar besar */
-    gap: 20px;
-}
-.gallery-item img { width: 100%; height: 300px; object-fit: cover; border-radius: 20px; transition: 0.3s; }
-.gallery-item img:hover { transform: scale(1.02); }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.gallery-item img { width: 1005; height: 250px; object-fit: cover; border-radius: 16px; width: 100%; transition: 0.3s; }
 
 /* --- FOOTER --- */
-footer { background: #161c30; padding: 50px 10%; display: flex; justify-content: space-between; margin-top: 100px; }
-.footer-links ul { list-style: none; margin-top: 20px; }
-.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+footer { background: #161c30; padding: 40px 20px; margin-top: 60px; text-align: left; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+.footer-brand { display: flex; align-items: center; gap: 10px; }
+.footer-links ul { list-style: none; margin-top: 15px; }
+.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; }
+
+/* --- ANIMASI SCROLL REVEAL --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE UNTUK HP (MEDIA QUERY) --- */
+@media (max-width: 768px) {
+    /* Munculkan tombol hamburger di HP */
+    .hamburger { display: flex; }
+
+    /* Ubah menu navbar menjadi drawer/dropdown tersembunyi */
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(30, 38, 64, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 0;
+        gap: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Tersembunyi secara default */
+        transition: clip-path 0.4s ease-in-out;
+    }
+
+    /* Saat menu aktif (dibuka lewat JS) */
+    .nav-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .hero h1 { font-size: 2.5rem; }
+    .org-level { gap: 10px; }
+    .org-box { min-width: 130px; padding: 10px 15px; }
+}
