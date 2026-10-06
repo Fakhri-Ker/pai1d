@@ -82,10 +82,48 @@ nav.scrolled {
 .stat-box p { font-size: 1rem; color: var(--text-muted); font-weight: 600; letter-spacing: 2px; }
 
 /* --- MEDIA SOSIAL --- */
-.media-container { display: flex; justify-content: center; gap: 30px; }
-.media-card { background: var(--card-bg); border-radius: 20px; padding: 30px; width: 300px; text-align: left; }
-.media-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-weight: 600; }
-.media-icon { width: 40px; height: 40px; }
+.media-container { 
+    display: flex; 
+    justify-content: center; 
+}
+.media-card { 
+    background: var(--card-bg); 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px; 
+    padding: 30px; 
+    width: 350px; /* Sedikit dilebarkan karena sekarang sendirian */
+    text-align: left; 
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    transition: 0.3s;
+    display: block;
+}
+.media-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+    font-weight: 600; 
+    color: var(--text-main);
+}
+.media-icon { 
+    width: 40px; 
+    height: 40px; 
+}
+.media-card h3 {
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+.media-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Efek Hover Khas Instagram */
+.ig-card:hover {
+    transform: translateY(-10px);
+    border-color: #e1306c; /* Warna pink Instagram */
+    box-shadow: 0 10px 30px rgba(225, 48, 108, 0.2); /* Bayangan pink */
+}
 
 /* --- STRUKTUR KELAS (Diagram) --- */
 .org-chart { display: flex; flex-direction: column; align-items: center; }
