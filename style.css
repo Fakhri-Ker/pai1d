@@ -1,54 +1,45 @@
 /* --- Konfigurasi Dasar --- */
 :root {
     --bg-color: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: rgba(30, 41, 59, 0.6);
+    --card-border: rgba(255, 255, 255, 0.08);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-color: #38bdf8;
-    --skeleton-bg: #334155;
-    --skeleton-shine: #475569;
+    --accent: #38bdf8;
+    --ig-color: #e1306c;
+    /* Warna Skeleton */
+    --skel-bg: #1e293b;
+    --skel-shine: #334155;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
 body {
-    background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+    background: linear-gradient(135deg, #020617, #0f172a, #162032);
     color: var(--text-primary);
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* --- Bagian Hero / Judul --- */
-.hero {
-    text-align: center;
-    padding: 80px 20px 40px;
-}
-
+/* --- Header --- */
+.hero { text-align: center; padding: 60px 20px 30px; }
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     background: linear-gradient(to right, #38bdf8, #818cf8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
 }
+.hero p { color: var(--text-secondary); margin-top: 5px; }
+.section-title { text-align: center; margin: 20px 0; border-bottom: 1px solid var(--skel-shine); padding-bottom: 10px; }
+.section-title h2 { font-size: 1.2rem; color: var(--text-secondary); font-weight: 500; letter-spacing: 1px; }
 
-.hero p {
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-}
-
-/* --- Struktur Organisasi --- */
-.org-chart {
+/* --- Struktur Layout (Flex & Grid) --- */
+.org-tree {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 20px 80px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -57,159 +48,103 @@ body {
     justify-content: center;
     gap: 30px;
     width: 100%;
-    margin-bottom: 20px;
 }
 
-.tier.split {
-    gap: 60px;
-}
-
-.tier.grid {
+/* Grid khusus untuk 11 PJ MK */
+.tier.pj-mk-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    /* Fleksibel: Minimal 200px, maksimal menyesuaikan layar */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     width: 100%;
-    max-width: 800px;
 }
 
-/* --- Garis Penghubung (Tree Structure) --- */
-.line {
+/* Garis Struktur (Hanya Desktop) */
+.tree-line {
     width: 2px;
     height: 30px;
-    background-color: var(--accent-color);
-    margin: 0 auto 20px;
-    opacity: 0.5;
+    background-color: var(--accent);
+    margin: 20px auto;
+    opacity: 0.4;
 }
 
-.line-split {
-    width: 2px;
-    height: 30px;
-    background-color: var(--accent-color);
-    margin: 0 auto 20px;
-    position: relative;
-    opacity: 0.5;
-}
-
-.line-split::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: -130px;
-    width: 260px;
-    height: 2px;
-    background-color: var(--accent-color);
-}
-
-.section-title {
-    margin: 40px 0 30px;
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 1px solid var(--skeleton-bg);
-    padding-bottom: 10px;
-}
-
-/* --- Desain Kartu (Glassmorphism) --- */
+/* --- Desain Kartu --- */
 .card {
     background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
     border-radius: 16px;
-    padding: 25px;
-    width: 240px;
+    padding: 20px;
+    width: 100%;
+    max-width: 260px; /* Fleksibel maksimal */
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s, border-color 0.3s;
+    margin: 0 auto; /* Tengah di mobile */
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
+    transform: translateY(-5px);
     border-color: rgba(56, 189, 248, 0.4);
 }
 
-.avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 15px;
+/* --- Konten Asli --- */
+.avatar-box { margin-bottom: 15px; display: flex; justify-content: center; }
+.avatar-box img {
+    width: 85px; height: 85px;
     border-radius: 50%;
-    background-color: #e2e8f0;
-    overflow: hidden;
-    border: 3px solid var(--accent-color);
-}
-
-.avatar img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    opacity: 1; /* Akan disembunyikan saat skeleton aktif */
-    transition: opacity 0.5s ease;
+    border: 2px solid var(--accent);
 }
 
-.info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+.info-box h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+.info-box .role { font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; }
+.ig-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 6px; font-size: 0.85rem; color: var(--text-secondary);
+    text-decoration: none; transition: color 0.3s;
+}
+.ig-link:hover { color: var(--ig-color); }
+.ig-link svg { width: 16px; height: 16px; }
+
+/* --- SKELETON LOGIC --- */
+/* Sembunyikan konten asli saat dalam mode skeleton */
+.card.skeleton .real-content { display: none !important; }
+
+/* Sembunyikan shape skeleton jika loading sudah selesai */
+.card:not(.skeleton) .skeleton-shape { display: none !important; }
+
+/* Animasi Shimmer Skeleton */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
-.info .role {
-    font-size: 0.9rem;
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-/* --- Efek Skeleton Loading --- */
-.skeleton .avatar img {
-    opacity: 0; /* Sembunyikan gambar asli saat loading */
-}
-
-.skeleton-text {
-    height: 20px;
-    margin: 0 auto 10px;
-    border-radius: 4px;
-    width: 80%;
-}
-
-.skeleton-text.role {
-    width: 50%;
-}
-
-.skeleton-img, .skeleton-text {
-    background: linear-gradient(90deg, var(--skeleton-bg) 25%, var(--skeleton-shine) 50%, var(--skeleton-bg) 75%);
+.skeleton-shape {
+    background: linear-gradient(90deg, var(--skel-bg) 25%, var(--skel-shine) 50%, var(--skel-bg) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
-    color: transparent !important; /* Sembunyikan teks asli */
-    border: none;
 }
 
-@keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
+/* Bentuk kerangka menyesuaikan wujud asli */
+.s-avatar { width: 85px; height: 85px; border-radius: 50%; }
+.s-name { width: 75%; height: 20px; border-radius: 4px; margin: 0 auto 8px; }
+.s-role { width: 50%; height: 14px; border-radius: 4px; margin: 0 auto 15px; }
+.s-ig { width: 60%; height: 14px; border-radius: 4px; margin: 0 auto; }
 
 /* --- Animasi Scroll (Reveal) --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Responsif (Mobile) --- */
+/* --- RESPONSIVE UNTUK HP (Portrait) --- */
 @media (max-width: 768px) {
-    .tier.split {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .line-split::after {
-        display: none;
-    }
-    .line, .line-split {
-        height: 20px;
-    }
-  }
+    /* Merubah tata letak menyamping jadi menurun (urut) */
+    .tier { flex-direction: column; gap: 15px; }
+    
+    /* Hilangkan garis pohon agar bersih di HP */
+    .tree-line { display: none; }
+    
+    /* Grid PJ MK berubah jadi 1 kolom berurut ke bawah */
+    .tier.pj-mk-grid { grid-template-columns: 1fr; gap: 15px; }
+    
+    .card { max-width: 100%; } /* Kartu memenuhi lebar layar hp */
+}
