@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.getElementById("members-container");
 
-    if (container) {
+        if (container) {
         container.innerHTML = anggota.map(person => {
 
             // Jika Instagram sudah diisi
@@ -130,6 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         }).join("");
 
+        // Pastikan daftar anggota langsung terlihat
+        container.classList.add("active");
+
         // Menampilkan jumlah data yang benar-benar ada di array
         const totalStudents = document.getElementById("total-students");
 
@@ -137,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
             totalStudents.textContent = anggota.length;
         }
     }
-
     // 3. ANIMASI SCROLL REVEAL
     const reveals = document.querySelectorAll(".reveal");
 
