@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Febri Harun", role: "Kosma", imgSeed: "Febri", ig: "https://www.instagram.com/_febriharun175/" },
         { nama: "Ismi Khoirunnisa", role: "Wakosma", imgSeed: "Ismi", ig: "https://www.instagram.com/bebelove_88/" },
         { nama: "Risma Komala", role: "Sekretaris 1", imgSeed: "Risma", ig: "https://www.instagram.com/rsmllaa4/" },
-        { nama: "Abdullah Fasya", role: "Sekretaris 2", imgSeed: "Fasya", ig: "https://www.instagram.com/absya13/" },
+        { nama: "Abdullah Fasya", role: "Sekretaris 2 & PJ Kitab Kuning", imgSeed: "Fasya", ig: "https://www.instagram.com/absya13/" },
         { nama: "Alice Aurellia A.", role: "Bendahara 1", imgSeed: "Alice", ig: "https://www.instagram.com/al_aurellia/" },
         { nama: "Maulie Alissa S.", role: "Bendahara 2", imgSeed: "Maulie", ig: "https://www.instagram.com/mauliealissasubagja/" },
 
@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         { nama: "Salwa Salsabil", role: "PJ Cyber Culture", imgSeed: "Salwa", ig: "" },
-
-        { nama: "Abdullah Fasya", role: "PJ Kitab Kuning", imgSeed: "Fasya-Kitab", ig: "https://www.instagram.com/absya13/" },
+        
         { nama: "Melinda Nurriyah", role: "PJ Kitab Kuning", imgSeed: "Melinda", ig: "" },
 
         { nama: "Tuslah Tarsiyatur R.", role: "PJ PPTQ", imgSeed: "Tuslah", ig: "https://www.instagram.com/xzyahh.15/" },
