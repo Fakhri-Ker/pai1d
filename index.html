@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struktur Kelas Modern</title>
-    <!-- Memanggil file CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,113 +14,104 @@
         <p class="reveal">Tahun Ajaran 2026/2027</p>
     </header>
 
-    <main class="org-chart">
-        <!-- Level 1: Wali Kelas -->
-        <div class="tier reveal">
+    <main class="org-tree">
+        
+        <!-- LEVEL 1: PIMPINAN (Ketua & Wakil) -->
+        <div class="tier leaders reveal">
+            <!-- Kosma / Ketua -->
             <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Wali" alt="Wali Kelas">
+                <div class="avatar-box">
+                    <div class="skeleton-shape s-avatar"></div>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ketua" alt="Foto" class="real-content">
                 </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Bpk. Budi Santoso</h3>
-                    <p class="skeleton-text role">Wali Kelas</p>
+                <div class="info-box">
+                    <div class="skeleton-shape s-name"></div>
+                    <h3 class="real-content">Ahmad Rizki</h3>
+                    
+                    <div class="skeleton-shape s-role"></div>
+                    <p class="real-content role">Kosma / Ketua Kelas</p>
+                    
+                    <div class="skeleton-shape s-ig"></div>
+                    <a href="https://instagram.com/ahmad_r" target="_blank" class="real-content ig-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        @ahmad_r
+                    </a>
+                </div>
+            </div>
+
+            <!-- Wakil Ketua -->
+            <div class="card skeleton">
+                <div class="avatar-box">
+                    <div class="skeleton-shape s-avatar"></div>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Wakil" alt="Foto" class="real-content">
+                </div>
+                <div class="info-box">
+                    <div class="skeleton-shape s-name"></div>
+                    <h3 class="real-content">Siti Nurhaliza</h3>
+                    <div class="skeleton-shape s-role"></div>
+                    <p class="real-content role">Wakil Kosma</p>
+                    <div class="skeleton-shape s-ig"></div>
+                    <a href="https://instagram.com/sitinur" target="_blank" class="real-content ig-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163... (potong ikon demi kerapian, cukup copy path diatas aja atau SVG IG standard) ... "/></svg>
+                        @sitinur
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Garis Penghubung -->
-        <div class="line reveal"></div>
+        <!-- Garis Penghubung (Hanya tampil di Desktop) -->
+        <div class="tree-line reveal"></div>
 
-        <!-- Level 2: Ketua Kelas -->
-        <div class="tier reveal">
+        <!-- LEVEL 2: BPH (Sekretaris & Bendahara) -->
+        <div class="tier bph reveal">
+            <!-- Sekretaris -->
             <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ketua" alt="Ketua Kelas">
+                <div class="avatar-box">
+                    <div class="skeleton-shape s-avatar"></div>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sekre" alt="Foto" class="real-content">
                 </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Ahmad Rizki</h3>
-                    <p class="skeleton-text role">Ketua Kelas</p>
+                <div class="info-box">
+                    <div class="skeleton-shape s-name"></div>
+                    <h3 class="real-content">Diana Putri</h3>
+                    <div class="skeleton-shape s-role"></div>
+                    <p class="real-content role">Sekretaris</p>
+                    <div class="skeleton-shape s-ig"></div>
+                    <a href="#" target="_blank" class="real-content ig-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204... "/></svg> @diana.p</a>
+                </div>
+            </div>
+
+            <!-- Bendahara -->
+            <div class="card skeleton">
+                <div class="avatar-box">
+                    <div class="skeleton-shape s-avatar"></div>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Benda" alt="Foto" class="real-content">
+                </div>
+                <div class="info-box">
+                    <div class="skeleton-shape s-name"></div>
+                    <h3 class="real-content">Bima Arya</h3>
+                    <div class="skeleton-shape s-role"></div>
+                    <p class="real-content role">Bendahara</p>
+                    <div class="skeleton-shape s-ig"></div>
+                    <a href="#" target="_blank" class="real-content ig-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204... "/></svg> @bima_ar</a>
                 </div>
             </div>
         </div>
 
-        <div class="line reveal"></div>
+        <div class="tree-line reveal"></div>
 
-        <!-- Level 3: Wakil Ketua -->
-        <div class="tier reveal">
-            <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Wakil" alt="Wakil Ketua">
-                </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Siti Nurhaliza</h3>
-                    <p class="skeleton-text role">Wakil Ketua</p>
-                </div>
-            </div>
+        <!-- LEVEL 3: PENANGGUNG JAWAB MATA KULIAH (11 MK) -->
+        <div class="section-title reveal">
+            <h2>Penanggung Jawab Mata Kuliah (PJ MK)</h2>
         </div>
 
-        <div class="line-split reveal"></div>
-
-        <!-- Level 4: Sekretaris & Bendahara -->
-        <div class="tier split reveal">
-            <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sekretaris" alt="Sekretaris">
-                </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Diana Putri</h3>
-                    <p class="skeleton-text role">Sekretaris</p>
-                </div>
-            </div>
-
-            <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Bendahara" alt="Bendahara">
-                </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Kevin Sanjaya</h3>
-                    <p class="skeleton-text role">Bendahara</p>
-                </div>
-            </div>
+        <!-- Container Grid untuk 11 MK -->
+        <!-- Daripada menulis manual 11 kali, kita akan me-render sisanya via JavaScript agar kode HTML bersih dan benar-benar mensimulasikan "Loading Data" -->
+        <div class="tier pj-mk-grid reveal" id="pj-container">
+            <!-- Kartu PJ MK akan dimunculkan otomatis oleh JavaScript -->
         </div>
 
-        <!-- Level 5: Divisi / Seksi -->
-        <h2 class="section-title reveal">Seksi - Seksi</h2>
-        <div class="tier grid reveal">
-            <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Keamanan" alt="Keamanan">
-                </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Bima Arya</h3>
-                    <p class="skeleton-text role">Keamanan</p>
-                </div>
-            </div>
-
-            <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Kebersihan" alt="Kebersihan">
-                </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Rina Nose</h3>
-                    <p class="skeleton-text role">Kebersihan</p>
-                </div>
-            </div>
-            
-            <div class="card skeleton">
-                <div class="avatar skeleton-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Olahraga" alt="Olahraga">
-                </div>
-                <div class="info">
-                    <h3 class="skeleton-text">Taufik H.</h3>
-                    <p class="skeleton-text role">Olahraga & Seni</p>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <!-- Memanggil file JavaScript -->
     <script src="script.js"></script>
 </body>
-  </html>
-  
+</html>
