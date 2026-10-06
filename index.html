@@ -16,21 +16,29 @@
             <div class="logo-icon"></div>
             <span>PAI 1D</span>
         </div>
-        <ul class="nav-links">
+        
+        <!-- Menu Navigasi Desktop -->
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">HOME</a></li>
             <li><a href="#tentang">TENTANG</a></li>
             <li><a href="#media">MEDIA</a></li>
             <li><a href="#struktur">STRUKTUR</a></li>
             <li><a href="#anggota">ANGGOTA</a></li>
             <li><a href="#gallery">GALLERY</a></li>
-            <li><a href="#prestasi">PRESTASI</a></li>
         </ul>
+
+        <!-- Tombol Hamburger untuk HP -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <!-- SECTION: HOME (HERO) -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="hero-content reveal">
             <span class="badge">OFFICIAL WEBSITE</span>
             <h1>WELCOME TO<br>PAI 1D</h1>
             <p>"Jadikan setiap hari sebuah petualangan. Raih impian, ukir prestasi!"</p>
@@ -39,10 +47,12 @@
 
     <!-- SECTION: TENTANG -->
     <section id="tentang" class="section">
-        <h2 class="section-title">TENTANG PAI 1D</h2>
-        <p class="section-desc">PAI 1D adalah rumah bagi para calon pendidik masa depan. Di sini, kami belajar, berbagi, dan berproses bersama untuk mencapai impian di dunia Pendidikan Agama Islam.</p>
+        <div class="reveal">
+            <h2 class="section-title">TENTANG PAI 1D</h2>
+            <p class="section-desc">PAI 1D adalah rumah bagi para calon pendidik masa depan. Di sini, kami belajar, berbagi, dan berproses bersama untuk mencapai impian di dunia Pendidikan Agama Islam.</p>
+        </div>
         
-        <div class="stats-container">
+        <div class="stats-container reveal">
             <div class="stat-box">
                 <h3>35</h3>
                 <p>STUDENTS</p>
@@ -60,14 +70,14 @@
 
     <!-- SECTION: MEDIA SOSIAL -->
     <section id="media" class="section">
-        <h2 class="section-title">MEDIA SOSIAL</h2>
-        <p class="section-desc">Kunjungi Instagram resmi kelas kami untuk melihat momen-momen seru, dokumentasi kegiatan, dan informasi terbaru seputar keluarga besar PAI 1D.</p>
+        <div class="reveal">
+            <h2 class="section-title">MEDIA SOSIAL</h2>
+            <p class="section-desc">Kunjungi Instagram resmi kelas kami untuk melihat momen-momen seru dan dokumentasi kegiatan PAI 1D.</p>
+        </div>
         
-        <div class="media-container">
-            <!-- Instagram Card (Satu-satunya) -->
+        <div class="media-container reveal">
             <a href="https://instagram.com/akun_ig_kelas_anda" target="_blank" class="media-card ig-card">
                 <div class="media-header">
-                    <!-- Logo IG resmi berformat SVG -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" class="media-icon">
                     <span>Instagram</span>
                 </div>
@@ -79,9 +89,11 @@
 
     <!-- SECTION: STRUKTUR KELAS -->
     <section id="struktur" class="section">
-        <h2 class="section-title">STRUKTUR KELAS</h2>
+        <div class="reveal">
+            <h2 class="section-title">STRUKTUR KELAS</h2>
+        </div>
         
-        <div class="org-chart">
+        <div class="org-chart reveal">
             <div class="org-level">
                 <div class="org-box wali">
                     <span class="role">WALI DOSEN</span>
@@ -127,32 +139,26 @@
 
     <!-- SECTION: ANGGOTA KELAS -->
     <section id="anggota" class="section">
-        <h2 class="section-title">ANGGOTA KELAS</h2>
-        <p class="section-desc">Temukan daftar lengkap anggota kelas kami di sini. Dari siswa paling aktif hingga sosok pemimpin yang inspiratif.</p>
-        
-        <div class="members-grid" id="members-container">
-            <!-- Data anggota akan dirender oleh JavaScript -->
+        <div class="reveal">
+            <h2 class="section-title">ANGGOTA KELAS</h2>
+            <p class="section-desc">Temukan daftar lengkap anggota kelas kami di sini. Dari siswa paling aktif hingga sosok pemimpin yang inspiratif.</p>
         </div>
-
-        <div class="pagination">
-            <button>Prev</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>Next</button>
+        
+        <div class="members-grid reveal" id="members-container">
+            <!-- Data anggota dirender via JavaScript -->
         </div>
     </section>
 
     <!-- SECTION: GALLERY -->
     <section id="gallery" class="section">
-        <h2 class="section-title">GALLERY</h2>
-        <p class="section-desc">Saksikan momen spesial dan kegiatan seru kami di sini. Setiap foto menyimpan cerita tentang kebersamaan dan semangat kelas kami.</p>
+        <div class="reveal">
+            <h2 class="section-title">GALLERY</h2>
+            <p class="section-desc">Saksikan momen spesial dan kegiatan seru kami di sini. Setiap foto menyimpan cerita tentang kebersamaan.</p>
+        </div>
         
-        <div class="gallery-grid">
+        <div class="gallery-grid reveal">
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500" alt="Galeri 1"></div>
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=500" alt="Galeri 2"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511629091441-ee46146481b6?w=500" alt="Galeri 3"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500" alt="Galeri 4"></div>
         </div>
     </section>
 
