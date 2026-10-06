@@ -19,14 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. DATA ANGGOTA KELAS
     const anggota = [
-        { nama: "Febri Harun", role: "Kosma", imgSeed: "Febri", ig: "https://www.instagram.com/_febriharun175?stkn=anphZjY0a2l2MnI2" },
-        { nama: "Ismi Khoirunnisa", role: "Wakosma", imgSeed: "Ismi", ig: "https://www.instagram.com/bebelove_88?stkn=YmUyY3JtOXU3M3o1" },
-        { nama: "Risma Komala", role: "Sekretaris 1", imgSeed: "Risma", ig: "https://www.instagram.com/rsmllaa4?stkn=MjdxNXo0NDV1OXVt" },
-        { nama: "Abdullah Fasya", role: "Sekretaris 2", imgSeed: "Fasya", ig: "https://www.instagram.com/absya13?stkn=NmZhdWNoeW1hOWky" },
-        { nama: "Alice Aurellia A.", role: "Bendahara 1", imgSeed: "Alice", ig: "https://www.instagram.com/al_aurellia?stkn=d2VyaWpmOWt6ZzBp" },
-        { nama: "Maulie Alissa S.", role: "Bendahara 2", imgSeed: "Maulie", ig: "https://www.instagram.com/mauliealissasubagja?stkn=MXBmaXNmcGxwMm1rbw==" },
+        { nama: "Febri Harun", role: "Kosma", imgSeed: "Febri", ig: "https://www.instagram.com/_febriharun175/" },
+        { nama: "Ismi Khoirunnisa", role: "Wakosma", imgSeed: "Ismi", ig: "https://www.instagram.com/bebelove_88/" },
+        { nama: "Risma Komala", role: "Sekretaris 1", imgSeed: "Risma", ig: "https://www.instagram.com/rsmllaa4/" },
+        { nama: "Abdullah Fasya", role: "Sekretaris 2", imgSeed: "Fasya", ig: "https://www.instagram.com/absya13/" },
+        { nama: "Alice Aurellia A.", role: "Bendahara 1", imgSeed: "Alice", ig: "https://www.instagram.com/al_aurellia/" },
+        { nama: "Maulie Alissa S.", role: "Bendahara 2", imgSeed: "Maulie", ig: "https://www.instagram.com/mauliealissasubagja/" },
 
-        { nama: "Ana Muflichah", role: "PJ Studi Al-Qur'an", imgSeed: "Ana", ig: "https://www.instagram.com/anamflh_23?stkn=d3ExcWJ5ZDZudzE5" },
+        { nama: "Ana Muflichah", role: "PJ Studi Al-Qur'an", imgSeed: "Ana", ig: "https://www.instagram.com/anamflh_23/" },
         { nama: "Yeni Susilawati", role: "PJ Studi Al-Qur'an", imgSeed: "Yeni", ig: "" },
 
         { nama: "Yasin Faturrahman", role: "PJ Tahsin & Tahfidz", imgSeed: "Yasin", ig: "" },
@@ -86,12 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (person.ig && person.ig.trim() !== "") {
                 let username = person.ig
-                    .replace("https://www.instagram.com/", "")
-                    .replace("https://instagram.com/", "")
-                    .replace("http://www.instagram.com/", "")
-                    .replace("http://instagram.com/", "")
+                    .replace(/^https?:\/\/(www\.)?instagram\.com\//, "")
+                    .split("?")[0]
                     .replace(/\/$/, "");
-
+                
                 instagramHTML = `
                     <a 
                         href="${person.ig}" 
