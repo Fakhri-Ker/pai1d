@@ -29,25 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Ana Muflichah", role: "PJ Studi Al-Qur'an", imgSeed: "Ana", ig: "https://www.instagram.com/anamflh_23/" },
         { nama: "Yeni Susilawati", role: "PJ Studi Al-Qur'an", imgSeed: "Yeni", ig: "" },
 
-        { nama: "Yasin Faturrahman", role: "PJ Tahsin & Tahfidz", imgSeed: "Yasin", ig: "" },
-        { nama: "Amatillah Khodijah", role: "PJ Tahsin & Tahfidz", imgSeed: "Khodijah", ig: "" },
+        { nama: "Yasin Faturrahman", role: "PJ Tahsin & Tahfidz", imgSeed: "Yasin", ig: "https://www.instagram.com/yssnfthrrhmn/" },
+        { nama: "Amatillah Khodijah", role: "PJ Tahsin & Tahfidz", imgSeed: "Khodijah", ig: "https://www.instagram.com/khodijah_odii/" },
 
-        { nama: "Revan Harry P.", role: "PJ SPIK", imgSeed: "Revan", ig: "" },
-        { nama: "Adinda Salsabilah", role: "PJ SPIK", imgSeed: "Adinda", ig: "" },
+        { nama: "Revan Harry P.", role: "PJ SPIK", imgSeed: "Revan", ig: "https://www.instagram.com/rvannn.hry/" },
+        { nama: "Adinda Salsabilah", role: "PJ SPIK", imgSeed: "Adinda", ig: "https://www.instagram.com/aislsblh_/" },
 
-        { nama: "Misky Farhani", role: "PJ Ilmu Tauhid", imgSeed: "Misky", ig: "" },
-        { nama: "Alvina Suharyati", role: "PJ Ilmu Tauhid", imgSeed: "Vina", ig: "" },
+        { nama: "Misky Farhani", role: "PJ Ilmu Tauhid", imgSeed: "Misky", ig: "https://www.instagram.com/mskyfrhani/" },
+        { nama: "Alvina Suharyati", role: "PJ Ilmu Tauhid", imgSeed: "Vina", ig: "https://www.instagram.com/alvnn_2813/" },
 
-        { nama: "Kusuma Sab'ah A. S.", role: "PJ PKN", imgSeed: "Kusuma", ig: "" },
-        { nama: "Nida Azkia", role: "PJ PKN", imgSeed: "Nida", ig: "" },
+        { nama: "Kusuma Sab'ah A. S.", role: "PJ PKN", imgSeed: "Kusuma", ig: "https://www.instagram.com/umek1638_/" },
+        { nama: "Nida Azkia", role: "PJ PKN", imgSeed: "Nida", ig: "https://www.instagram.com/nida_azkiaa/" },
 
-        { nama: "Sandy Jamaludin P.", role: "PJ B. Indonesia", imgSeed: "Sandy", ig: "" },
-        { nama: "Tasya Ayu L.", role: "PJ B. Indonesia", imgSeed: "Tasya", ig: "" },
+        { nama: "Sandy Jamaludin P.", role: "PJ B. Indonesia", imgSeed: "Sandy", ig: "https://www.instagram.com/sandy_prtama07/" },
+        { nama: "Tasya Ayu L.", role: "PJ B. Indonesia", imgSeed: "Tasya", ig: "https://www.instagram.com/tvs_y_l/" },
 
-        { nama: "Agung Maulana", role: "PJ B. Arab", imgSeed: "Agung", ig: "" },
-        { nama: "Siti Zahrotul Amelia", role: "PJ B. Arab", imgSeed: "Amel", ig: "" },
+        { nama: "Agung Maulana", role: "PJ B. Arab", imgSeed: "Agung", ig: "https://www.instagram.com/agungmaulana5257/" },
+        { nama: "Siti Zahrotul Amelia", role: "PJ B. Arab", imgSeed: "Amel", ig: "https://www.instagram.com/cmelyya13/" },
 
-        { nama: "Mila Nurjuliani", role: "PJ Cirebon Studies", imgSeed: "Mila", ig: "" },
+        { nama: "Mila Nurjuliani", role: "PJ Cirebon Studies", imgSeed: "Mila", ig: "https://www.instagram.com/nurjulianimila/" },
         { nama: "Resty Bilqis A.", role: "PJ Cirebon Studies", imgSeed: "Resty", ig: "" },
 
         {
@@ -59,21 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         { nama: "Salwa Salsabil", role: "PJ Cyber Culture", imgSeed: "Salwa", ig: "" },
 
-        { nama: "Abdullah Fasya", role: "PJ Kitab Kuning", imgSeed: "Fasya-Kitab", ig: "" },
+        { nama: "Abdullah Fasya", role: "PJ Kitab Kuning", imgSeed: "Fasya-Kitab", ig: "https://www.instagram.com/absya13/" },
         { nama: "Melinda Nurriyah", role: "PJ Kitab Kuning", imgSeed: "Melinda", ig: "" },
 
-        { nama: "Tuslah Tarsiyatur R.", role: "PJ PPTQ", imgSeed: "Tuslah", ig: "" },
+        { nama: "Tuslah Tarsiyatur R.", role: "PJ PPTQ", imgSeed: "Tuslah", ig: "https://www.instagram.com/xzyahh.15/" },
         { nama: "Khumaira Nur Aulia P.", role: "PJ PPTQ", imgSeed: "Khumaira", ig: "" },
 
-        { nama: "Adib Taufiqul H. S.", role: "", imgSeed: "Adib", ig: "" },
-        { nama: "Adinda Salsabilah", role: "", imgSeed: "Adinda-2", ig: "" },
-        { nama: "A. Rizky Nurhabib", role: "", imgSeed: "Habib", ig: "" },
-        { nama: "Diva Dienul Q.", role: "", imgSeed: "Diva", ig: "" },
+        { nama: "Adib Taufiqul H. S.", role: "", imgSeed: "Adib", ig: "https://www.instagram.com/adibtaufiqulhakimsyah/" },
+        { nama: "A. Rizky Nurhabib", role: "", imgSeed: "Habib", ig: "https://www.instagram.com/ahmdrzkynrhbb_07/" },
+        { nama: "Diva Dienul Q.", role: "", imgSeed: "Diva", ig: "https://www.instagram.com/_adzheanahelix/" },
         { nama: "Ildiyo Putra P", role: "", imgSeed: "Ildiyo", ig: "" },
-        { nama: "M. Ragil Erlangga", role: "", imgSeed: "Ragil", ig: "" },
-        { nama: "Nindi Juli Andini", role: "", imgSeed: "Nindi", ig: "" },
-        { nama: "Raisa Iztania Balqis", role: "", imgSeed: "Raisa", ig: "" },
-        { nama: "Shelsi Riyanti", role: "", imgSeed: "Shelsi", ig: "" }
+        { nama: "M. Ragil Erlangga", role: "", imgSeed: "Ragil", ig: "https://www.instagram.com/rglerlanggaa_/" },
+        { nama: "Nindi Juli Andini", role: "", imgSeed: "Nindi", ig: "https://www.instagram.com/its_nii097/" },
+        { nama: "Raisa Iztania Balqis", role: "", imgSeed: "Raisa", ig: "https://www.instagram.com/raisa.iztania/" },
+        { nama: "Shelsi Riyanti", role: "", imgSeed: "Shelsi", ig: "https://www.instagram.com/shlrynt_/" }
     ];
 
     const container = document.getElementById("members-container");
