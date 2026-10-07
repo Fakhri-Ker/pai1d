@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
           role: "PJ Ilmu Tauhid", 
          gender: "P",
           foto: "", 
-         avatar: "Vina"
+         avatar: "Vina",
           ig: "https://www.instagram.com/alvnn_2813/"
         },
 
