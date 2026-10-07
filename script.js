@@ -138,6 +138,62 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Shelsi Riyanti", role: "", imgSeed: "Shelsi", ig: "https://www.instagram.com/shlrynt_/" }
     ];
 
+    // 3. DATA GALLERY / FOTBAR
+const galleryData = [
+    {
+        kategori: "KEGIATAN 1",
+        foto: [
+            "kegiatan1.jpg",
+            "kegiatan2.jpg",
+            "kegiatan3.jpg"
+        ]
+    },
+
+    {
+        kategori: "KEGIATAN 2",
+        foto: [
+            "kegiatan4.jpg",
+            "kegiatan5.jpg"
+        ]
+    },
+
+    {
+        kategori: "KEGIATAN 3",
+        foto: [
+            "kegiatan6.jpg",
+            "kegiatan7.jpg"
+        ]
+    }
+];
+
+    // Menampilkan Gallery
+const galleryContainer = document.getElementById("gallery-container");
+
+if (galleryContainer) {
+    galleryContainer.innerHTML = galleryData.map(kategori => `
+        <div class="gallery-category">
+
+            <h3 class="gallery-category-title">
+                ${kategori.kategori}
+            </h3>
+
+            <div class="gallery-grid">
+                ${kategori.foto.map(namaFoto => `
+                    <div class="gallery-item">
+                        <img
+                            src="assets/images/fotbar/${namaFoto}"
+                            alt="${kategori.kategori}"
+                            loading="lazy"
+                        >
+                        <span>${kategori.kategori}</span>
+                    </div>
+                `).join("")}
+            </div>
+
+        </div>
+    `).join("");
+}
+    
     const container = document.getElementById("members-container");
 
         if (container) {
@@ -171,23 +227,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             return `
-                <article class="member-card">
-                    <img
-                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(person.imgSeed)}"
-                        alt="Foto ${person.nama}"
-                        class="member-img"
-                        loading="lazy"
-                    >
+    <article class="member-card">
+        <img
+            src="${person.foto}"
+            alt="Foto ${person.nama}"
+            class="member-img"
+            loading="lazy"
+        >
 
-                    <h3 class="member-name">${person.nama}</h3>
+        <h3 class="member-name">${person.nama}</h3>
 
-                    <p class="member-role">
-                        ${person.role || "Anggota Kelas"}
-                    </p>
+        <p class="member-role">
+            ${person.role || "Anggota Kelas"}
+        </p>
 
-                    ${instagramHTML}
-                </article>
-            `;
+        ${instagramHTML}
+    </article>
+`;
         }).join("");
 
         // Pastikan daftar anggota langsung terlihat
