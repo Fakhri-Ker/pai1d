@@ -141,11 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. DATA GALLERY / FOTBAR
 const galleryData = [
     {
-        kategori: "KEGIATAN 1",
+        kategori: "FOTBAR",
         foto: [
-            "kegiatan1.jpg",
-            "kegiatan2.jpg",
-            "kegiatan3.jpg"
+            "fotbar1.jpg",
+            "fotbar2.jpg",
+            "fotbar3.jpg",
+            "fotbar4.jpg",
+            "fotbar5.jpg",
+            "fotbar6.jpg"
         ]
     },
 
