@@ -400,6 +400,27 @@ nav {
     gap: 25px;
 }
 
+.gallery-category {
+    margin-bottom: 55px;
+}
+
+.gallery-category-title {
+    display: inline-block;
+    color: var(--green-dark);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    padding: 8px 18px;
+    border-left: 5px solid var(--yellow);
+    border-right: 5px solid var(--blue);
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.gallery-category .gallery-grid {
+    margin-top: 5px;
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
