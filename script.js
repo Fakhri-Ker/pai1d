@@ -19,27 +19,91 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. DATA ANGGOTA KELAS
     const anggota = [
-        { nama: "Febri Harun", role: "Kosma", imgSeed: "Febri", ig: "https://www.instagram.com/_febriharun175/" },
-        { nama: "Ismi Khoirunnisa", role: "Wakosma", imgSeed: "Ismi", ig: "https://www.instagram.com/bebelove_88/" },
-        { nama: "Risma Komala", role: "Sekretaris 1", imgSeed: "Risma", ig: "https://www.instagram.com/rsmllaa4/" },
-        { nama: "Abdullah Fasya", role: "Sekretaris 2 & PJ Kitab Kuning", imgSeed: "Fasya", ig: "https://www.instagram.com/absya13/" },
-        { nama: "Alice Aurellia A.", role: "Bendahara 1", imgSeed: "Alice", ig: "https://www.instagram.com/al_aurellia/" },
-        { nama: "Maulie Alissa S.", role: "Bendahara 2", imgSeed: "Maulie", ig: "https://www.instagram.com/mauliealissasubagja/" },
+        { nama: "Febri Harun",
+          role: "Kosma",
+          foto: "assets/images/individu/febri.jpg",
+          ig: "https://www.instagram.com/_febriharun175/"
+        },
+        { nama: "Ismi Khoirunnisa", 
+          role: "Wakosma",
+          foto: "", 
+          ig: "https://www.instagram.com/bebelove_88/" 
+        },
+        { nama: "Risma Komala", 
+          role: "Sekretaris 1", 
+          foto: "",
+          ig: "https://www.instagram.com/rsmllaa4/"
+        },
+        { nama: "Abdullah Fasya", 
+          role: "Sekretaris 2 & PJ Kitab Kuning", 
+          foto: "", 
+          ig: "https://www.instagram.com/absya13/" 
+        },
+        { nama: "Alice Aurellia A.",
+          role: "Bendahara 1",
+          foto: "", 
+          ig: "https://www.instagram.com/al_aurellia/"
+        },
+        { nama: "Maulie Alissa S.", 
+          role: "Bendahara 2",
+          foto: "", 
+          ig: "https://www.instagram.com/mauliealissasubagja/" 
+        },
 
-        { nama: "Ana Muflichah", role: "PJ Studi Al-Qur'an", imgSeed: "Ana", ig: "https://www.instagram.com/anamflh_23/" },
-        { nama: "Yeni Susilawati", role: "PJ Studi Al-Qur'an", imgSeed: "Yeni", ig: "" },
+        { nama: "Ana Muflichah",
+          role: "PJ Studi Al-Qur'an",
+          foto: "", 
+          ig: "https://www.instagram.com/anamflh_23/"
+        },
+        { nama: "Yeni Susilawati",
+          role: "PJ Studi Al-Qur'an", 
+          foto: "",
+          ig: ""
+        },
 
-        { nama: "Yasin Faturrahman", role: "PJ Tahsin & Tahfidz", imgSeed: "Yasin", ig: "https://www.instagram.com/yssnfthrrhmn/" },
-        { nama: "Amatillah Khodijah", role: "PJ Tahsin & Tahfidz", imgSeed: "Khodijah", ig: "https://www.instagram.com/khodijah_odii/" },
+        { nama: "Yasin Faturrahman", 
+          role: "PJ Tahsin & Tahfidz",
+          foto: "", 
+          ig: "https://www.instagram.com/yssnfthrrhmn/" 
+        },
+        { nama: "Amatillah Khodijah",
+          role: "PJ Tahsin & Tahfidz",
+          foto: "",
+          ig: "https://www.instagram.com/khodijah_odii/" 
+        },
 
-        { nama: "Revan Harry P.", role: "PJ SPIK", imgSeed: "Revan", ig: "https://www.instagram.com/rvannn.hry/" },
-        { nama: "Adinda Salsabilah", role: "PJ SPIK", imgSeed: "Adinda", ig: "https://www.instagram.com/aislsblh_/" },
+        { nama: "Revan Harry P.",
+          role: "PJ SPIK",
+          foto: "", 
+          ig: "https://www.instagram.com/rvannn.hry/"
+        },
+        { nama: "Adinda Salsabilah",
+          role: "PJ SPIK", 
+          foto: "", 
+          ig: "https://www.instagram.com/aislsblh_/"
+        },
 
-        { nama: "Misky Farhani", role: "PJ Ilmu Tauhid", imgSeed: "Misky", ig: "https://www.instagram.com/mskyfrhani/" },
-        { nama: "Alvina Suharyati", role: "PJ Ilmu Tauhid", imgSeed: "Vina", ig: "https://www.instagram.com/alvnn_2813/" },
+        { nama: "Misky Farhani", 
+          role: "PJ Ilmu Tauhid", 
+          foto: "", 
+          ig: "https://www.instagram.com/mskyfrhani/"
+        },
+        { nama: "Alvina Suharyati", 
+          role: "PJ Ilmu Tauhid", 
+          foto: "", 
+          ig: "https://www.instagram.com/alvnn_2813/"
+        },
 
-        { nama: "Kusuma Sab'ah A. S.", role: "PJ PKN", imgSeed: "Kusuma", ig: "https://www.instagram.com/umek1638_/" },
-        { nama: "Nida Azkia", role: "PJ PKN", imgSeed: "Nida", ig: "https://www.instagram.com/nida_azkiaa/" },
+        { nama: "Kusuma Sab'ah A. S.",
+          role: "PJ PKN", 
+          foto: "",
+          ig: "https://www.instagram.com/umek1638_/"
+        },
+        { nama: "Nida Azkia",
+          role: "PJ PKN", 
+          foto: "",
+          ig: "https://www.instagram.com/nida_azkiaa/"
+        },
 
         { nama: "Sandy Jamaludin P.", role: "PJ B. Indonesia", imgSeed: "Sandy", ig: "https://www.instagram.com/sandy_prtama07/" },
         { nama: "Tasya Ayu L.", role: "PJ B. Indonesia", imgSeed: "Tasya", ig: "https://www.instagram.com/tvs_y_l/" },
