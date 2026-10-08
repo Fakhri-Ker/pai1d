@@ -529,11 +529,30 @@ const songs = [
     {
         title: "Perunggu — 33x",
         src: "musik/33x.mp3"
-}
+    },
+    {
+        title: "Idgitaf — Takut",
+        src: "musik/takut.mp3"
+    },
+    {
+        title: "Masa Mudaku Habis",
+        src: "musik/masamudaku.mp3"
+    },
+    {
+        title: "Raim Laude — Iqro'",
+        src: "musik/iqro.mp3"
+    }
 ];
 
 let currentSongIndex = 0;
 
+let playMode = "normal";
+// normal = urutan biasa
+// shuffle = acak tanpa pengulangan sampai semua lagu mendapat giliran
+// repeat = ulangi lagu yang sedang diputar
+
+let shuffleBag = [];
+    
 const audio = document.getElementById("audio-player");
 
 const musicToggleBtn =
@@ -736,17 +755,14 @@ playBtn.addEventListener("click", () => {
 });
 
 
-// =========================
-// NEXT
-// =========================
+
+/* =========================
+   NEXT / LAGU SELANJUTNYA
+========================= */
 
 nextBtn.addEventListener("click", () => {
-
-    currentSongIndex =
-        (currentSongIndex + 1) % songs.length;
-
+    currentSongIndex = getNextSongIndex();
     loadSong(currentSongIndex, true);
-
 });
 
 
@@ -779,21 +795,74 @@ muteBtn.addEventListener("click", () => {
 });
 
 
-// =========================
-// LOOP
-// =========================
+
+/* =========================
+   MODE PEMUTARAN
+   Normal → Acak → Ulangi → Normal
+========================= */
+
+function updatePlayModeButton() {
+    if (playMode === "normal") {
+        loopBtn.textContent = "🔁";
+        loopBtn.style.color = "#999999";
+        loopBtn.title = "Mode normal";
+        loopBtn.classList.remove("active");
+    } else if (playMode === "shuffle") {
+        loopBtn.textContent = "🔀";
+        loopBtn.style.color = "#35b978";
+        loopBtn.title = "Putar acak";
+        loopBtn.classList.add("active");
+    } else {
+        loopBtn.textContent = "🔂";
+        loopBtn.style.color = "#35b978";
+        loopBtn.title = "Ulangi lagu ini";
+        loopBtn.classList.add("active");
+    }
+}
+
+function refillShuffleBag() {
+    // Semua indeks lagu selain lagu yang sedang diputar
+    shuffleBag = songs
+        .map((_, index) => index)
+        .filter(index => index !== currentSongIndex);
+
+    // Acak urutan lagu (Fisher–Yates)
+    for (let i = shuffleBag.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffleBag[i], shuffleBag[j]] =
+            [shuffleBag[j], shuffleBag[i]];
+    }
+}
+
+function getNextSongIndex() {
+    if (playMode === "shuffle") {
+        // Buat putaran acak baru jika semua lagu sudah dimainkan
+        if (shuffleBag.length === 0) {
+            refillShuffleBag();
+        }
+
+        return shuffleBag.pop();
+    }
+
+    return (currentSongIndex + 1) % songs.length;
+}
 
 loopBtn.addEventListener("click", () => {
+    if (playMode === "normal") {
+        playMode = "shuffle";
+        refillShuffleBag();
+    } else if (playMode === "shuffle") {
+        playMode = "repeat";
+        shuffleBag = [];
+    } else {
+        playMode = "normal";
+        shuffleBag = [];
+    }
 
-    audio.loop = !audio.loop;
-
-    loopBtn.classList.toggle(
-        "active",
-        audio.loop
-    );
-
+    audio.loop = (playMode === "repeat");
+    updatePlayModeButton();
 });
-
+    
 
 // =========================
 // PLAYLIST TOGGLE
@@ -806,21 +875,16 @@ toggleListBtn.addEventListener("click", () => {
 });
 
 
-// =========================
-// LAGU SELESAI
-// =========================
+
+/* =========================
+   LAGU SELESAI
+========================= */
 
 audio.addEventListener("ended", () => {
-
-    if (!audio.loop) {
-
-        currentSongIndex =
-            (currentSongIndex + 1) % songs.length;
-
+    if (playMode !== "repeat") {
+        currentSongIndex = getNextSongIndex();
         loadSong(currentSongIndex, true);
-
     }
-
 });
 
 
@@ -901,9 +965,13 @@ audio.addEventListener(
 );
 
 
-// =========================
-// INISIALISASI
-// =========================
 
+/* =========================
+   INISIALISASI
+========================= */
+
+audio.loop = false;
+updatePlayModeButton();
 loadSong(currentSongIndex, false);
+
 });
