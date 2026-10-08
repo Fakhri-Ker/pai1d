@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Agung Maulana",
           role: "PJ B. Arab",
          gender: "L",
-          foto: "",
+          foto: "assets/images/individu/agung.jpg",
          avatar: "Agung",
           ig: "https://www.instagram.com/agungmaulana5257/" 
         },
