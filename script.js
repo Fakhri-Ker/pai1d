@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Maulie Alissa S.", 
           role: "Bendahara 2",
           gender: "P",
-          foto: "", 
+          foto: "assets/images/individu/maulie.jpg", 
           avatar: "Maulie",
           ig: "https://www.instagram.com/mauliealissasubagja/" 
         },
