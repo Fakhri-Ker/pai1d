@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "M. Ragil Erlangga",
           role: "",
          gender: "L",
-          foto: "",
+          foto: "assets/images/individu/ragil.jpg",
          avatar: "Ragil",
           ig: "https://www.instagram.com/rglerlanggaa_/"
         },
