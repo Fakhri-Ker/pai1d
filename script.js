@@ -525,7 +525,7 @@ const songs = [
     {
         title: "Melangitkanmu",
         src: "musik/langit.mp3"
-    }
+    },
     {
         title: "Perunggu — 33x",
         src: "musik/33x.mp3"
