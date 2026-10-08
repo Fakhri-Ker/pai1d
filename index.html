@@ -149,7 +149,63 @@
         </div>
     </div>
 </footer>
+<!-- MUSIC PLAYER -->
+<button id="musicToggleBtn" title="Buka/Tutup Pemutar Musik">🎵</button>
 
+<div id="musicPlayerContainer">
+    <div class="player-card">
+
+        <button id="closeMusicBtn" title="Tutup">✖</button>
+
+        <div id="song-title">Memuat musik...</div>
+
+        <div class="time-container">
+            <span id="currentTime">0:00</span>
+
+            <input
+                type="range"
+                id="progressBar"
+                value="0"
+                min="0"
+                max="100"
+            >
+
+            <span id="durationTime">0:00</span>
+        </div>
+
+        <div class="controls-main">
+            <button class="btn loop-btn" id="loopBtn" title="Putar Ulang">
+                🔁
+            </button>
+
+            <button class="btn" id="prevBtn" title="Sebelumnya">
+                ⏮
+            </button>
+
+            <button class="btn play-btn" id="playPause" title="Putar/Jeda">
+                ▶
+            </button>
+
+            <button class="btn" id="nextBtn" title="Selanjutnya">
+                ⏭
+            </button>
+        </div>
+
+        <div class="bottom-bar">
+            <button class="btn mute-btn" id="muteBtn" title="Bisukan">
+                🔊
+            </button>
+
+            <button class="list-toggle" id="toggleListBtn">
+                DAFTAR
+            </button>
+        </div>
+
+        <div class="playlist" id="playlist"></div>
+    </div>
+
+    <audio id="audio-player"></audio>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
