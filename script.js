@@ -547,11 +547,10 @@ const songs = [
 let currentSongIndex = 0;
 
 let playMode = "normal";
-// normal = urutan biasa
-// shuffle = acak tanpa pengulangan sampai semua lagu mendapat giliran
-// repeat = ulangi lagu yang sedang diputar
-
 let shuffleBag = [];
+
+let playHistory = [];
+let historyPosition = -1;
     
 const audio = document.getElementById("audio-player");
 
@@ -760,9 +759,12 @@ playBtn.addEventListener("click", () => {
    NEXT / LAGU SELANJUTNYA
 ========================= */
 
+
 nextBtn.addEventListener("click", () => {
-    currentSongIndex = getNextSongIndex();
-    loadSong(currentSongIndex, true);
+    const nextIndex = getNextSongIndex();
+
+    recordSong(nextIndex);
+    loadSong(nextIndex, true);
 });
 
 
@@ -771,13 +773,23 @@ nextBtn.addEventListener("click", () => {
 // =========================
 
 prevBtn.addEventListener("click", () => {
+    if (playMode === "shuffle") {
+        if (historyPosition > 0) {
+            historyPosition--;
 
-    currentSongIndex =
-        (currentSongIndex - 1 + songs.length)
-        % songs.length;
+            const previousIndex = playHistory[historyPosition];
+            loadSong(previousIndex, true);
+        } else {
+            // Belum ada riwayat sebelumnya.
+            audio.currentTime = 0;
+        }
+    } else {
+        const previousIndex =
+            (currentSongIndex - 1 + songs.length) % songs.length;
 
-    loadSong(currentSongIndex, true);
-
+        recordSong(previousIndex);
+        loadSong(previousIndex, true);
+    }
 });
 
 
@@ -834,9 +846,9 @@ function refillShuffleBag() {
     }
 }
 
+
 function getNextSongIndex() {
     if (playMode === "shuffle") {
-        // Buat putaran acak baru jika semua lagu sudah dimainkan
         if (shuffleBag.length === 0) {
             refillShuffleBag();
         }
@@ -846,6 +858,17 @@ function getNextSongIndex() {
 
     return (currentSongIndex + 1) % songs.length;
 }
+
+    
+function recordSong(index) {
+    // Jika kembali ke lagu sebelumnya lalu memilih lagu baru,
+    // hapus riwayat maju yang sudah tidak digunakan.
+    playHistory = playHistory.slice(0, historyPosition + 1);
+
+    playHistory.push(index);
+    historyPosition = playHistory.length - 1;
+}
+    
 
 loopBtn.addEventListener("click", () => {
     if (playMode === "normal") {
@@ -882,8 +905,10 @@ toggleListBtn.addEventListener("click", () => {
 
 audio.addEventListener("ended", () => {
     if (playMode !== "repeat") {
-        currentSongIndex = getNextSongIndex();
-        loadSong(currentSongIndex, true);
+        const nextIndex = getNextSongIndex();
+
+        recordSong(nextIndex);
+        loadSong(nextIndex, true);
     }
 });
 
@@ -972,6 +997,8 @@ audio.addEventListener(
 
 audio.loop = false;
 updatePlayModeButton();
+
+recordSong(currentSongIndex);
 loadSong(currentSongIndex, false);
 
 });
