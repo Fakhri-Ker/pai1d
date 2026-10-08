@@ -508,4 +508,398 @@ document.addEventListener("keydown", (e) => {
     if (year) {
         year.textContent = new Date().getFullYear();
     }
+
+    // =========================
+// 6. MUSIC PLAYER
+// =========================
+
+const songs = [
+    {
+        title: "Kota Ini Tak Sama Tanpamu",
+        src: "musik/kotataksama.mp3"
+    },
+    {
+        title: "Usik",
+        src: "musik/usik.mp3"
+    },
+    {
+        title: "Melangitkanmu",
+        src: "musik/langit.mp3"
+    }
+];
+
+let currentSongIndex = 0;
+
+const audio = document.getElementById("audio-player");
+
+const musicToggleBtn =
+    document.getElementById("musicToggleBtn");
+
+const musicPlayerContainer =
+    document.getElementById("musicPlayerContainer");
+
+const closeMusicBtn =
+    document.getElementById("closeMusicBtn");
+
+const playBtn =
+    document.getElementById("playPause");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const muteBtn =
+    document.getElementById("muteBtn");
+
+const loopBtn =
+    document.getElementById("loopBtn");
+
+const toggleListBtn =
+    document.getElementById("toggleListBtn");
+
+const playlistDiv =
+    document.getElementById("playlist");
+
+const titleDisp =
+    document.getElementById("song-title");
+
+const currentTimeEl =
+    document.getElementById("currentTime");
+
+const durationTimeEl =
+    document.getElementById("durationTime");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+
+// =========================
+// MEMORI LAGU
+// =========================
+
+const savedSongIndex =
+    localStorage.getItem("pai1dSongIndex");
+
+const savedTime =
+    localStorage.getItem("pai1dSongTime");
+
+if (savedSongIndex !== null) {
+    currentSongIndex = parseInt(savedSongIndex);
+
+    if (
+        currentSongIndex < 0 ||
+        currentSongIndex >= songs.length
+    ) {
+        currentSongIndex = 0;
+    }
+}
+
+
+// =========================
+// BUKA / TUTUP PLAYER
+// =========================
+
+musicToggleBtn.addEventListener("click", () => {
+
+    musicPlayerContainer.classList.toggle("show");
+
+});
+
+
+closeMusicBtn.addEventListener("click", () => {
+
+    musicPlayerContainer.classList.remove("show");
+
+});
+
+
+// =========================
+// FORMAT WAKTU
+// =========================
+
+function formatTime(seconds) {
+
+    if (isNaN(seconds)) {
+        return "0:00";
+    }
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+    const secondsPart =
+        Math.floor(seconds % 60);
+
+    return `${minutes}:${secondsPart
+        .toString()
+        .padStart(2, "0")}`;
+}
+
+
+// =========================
+// LOAD LAGU
+// =========================
+
+function loadSong(index, autoPlay = false) {
+
+    currentSongIndex = index;
+
+    const song = songs[currentSongIndex];
+
+    audio.src = song.src;
+
+    titleDisp.textContent = song.title;
+
+    localStorage.setItem(
+        "pai1dSongIndex",
+        currentSongIndex
+    );
+
+    localStorage.removeItem("pai1dSongTime");
+
+    progressBar.value = 0;
+
+    currentTimeEl.textContent = "0:00";
+    durationTimeEl.textContent = "0:00";
+
+    if (autoPlay) {
+
+        audio.play()
+            .then(() => {
+                playBtn.textContent = "⏸";
+            })
+            .catch(() => {
+                playBtn.textContent = "▶";
+            });
+
+    } else {
+
+        playBtn.textContent = "▶";
+
+    }
+
+}
+
+
+// =========================
+// PLAYLIST
+// =========================
+
+songs.forEach((song, index) => {
+
+    const item = document.createElement("div");
+
+    item.textContent = song.title;
+
+    item.addEventListener("click", () => {
+
+        loadSong(index, true);
+
+        playlistDiv.classList.remove("active");
+
+    });
+
+    playlistDiv.appendChild(item);
+
+});
+
+
+// =========================
+// PLAY / PAUSE
+// =========================
+
+playBtn.addEventListener("click", () => {
+
+    if (audio.paused) {
+
+        audio.play()
+            .then(() => {
+                playBtn.textContent = "⏸";
+            })
+            .catch(() => {
+                console.log("Musik belum dapat diputar.");
+            });
+
+    } else {
+
+        audio.pause();
+
+        playBtn.textContent = "▶";
+
+    }
+
+});
+
+
+// =========================
+// NEXT
+// =========================
+
+nextBtn.addEventListener("click", () => {
+
+    currentSongIndex =
+        (currentSongIndex + 1) % songs.length;
+
+    loadSong(currentSongIndex, true);
+
+});
+
+
+// =========================
+// PREVIOUS
+// =========================
+
+prevBtn.addEventListener("click", () => {
+
+    currentSongIndex =
+        (currentSongIndex - 1 + songs.length)
+        % songs.length;
+
+    loadSong(currentSongIndex, true);
+
+});
+
+
+// =========================
+// MUTE
+// =========================
+
+muteBtn.addEventListener("click", () => {
+
+    audio.muted = !audio.muted;
+
+    muteBtn.textContent =
+        audio.muted ? "🔇" : "🔊";
+
+});
+
+
+// =========================
+// LOOP
+// =========================
+
+loopBtn.addEventListener("click", () => {
+
+    audio.loop = !audio.loop;
+
+    loopBtn.classList.toggle(
+        "active",
+        audio.loop
+    );
+
+});
+
+
+// =========================
+// PLAYLIST TOGGLE
+// =========================
+
+toggleListBtn.addEventListener("click", () => {
+
+    playlistDiv.classList.toggle("active");
+
+});
+
+
+// =========================
+// LAGU SELESAI
+// =========================
+
+audio.addEventListener("ended", () => {
+
+    if (!audio.loop) {
+
+        currentSongIndex =
+            (currentSongIndex + 1) % songs.length;
+
+        loadSong(currentSongIndex, true);
+
+    }
+
+});
+
+
+// =========================
+// UPDATE WAKTU
+// =========================
+
+audio.addEventListener("timeupdate", () => {
+
+    currentTimeEl.textContent =
+        formatTime(audio.currentTime);
+
+    if (audio.duration) {
+
+        durationTimeEl.textContent =
+            formatTime(audio.duration);
+
+        progressBar.value =
+            (audio.currentTime / audio.duration) * 100;
+
+    }
+
+    if (audio.currentTime > 0) {
+
+        localStorage.setItem(
+            "pai1dSongTime",
+            audio.currentTime
+        );
+
+    }
+
+});
+
+
+// =========================
+// PROGRESS BAR
+// =========================
+
+progressBar.addEventListener("input", (e) => {
+
+    if (audio.duration) {
+
+        audio.currentTime =
+            (e.target.value / 100)
+            * audio.duration;
+
+    }
+
+});
+
+
+// =========================
+// KEMBALIKAN POSISI TERAKHIR
+// =========================
+
+audio.addEventListener(
+    "loadedmetadata",
+    () => {
+
+        if (savedTime !== null) {
+
+            const time =
+                parseFloat(savedTime);
+
+            if (
+                !isNaN(time) &&
+                time < audio.duration
+            ) {
+
+                audio.currentTime = time;
+
+            }
+
+        }
+
+    },
+    { once: true }
+);
+
+
+// =========================
+// INISIALISASI
+// =========================
+
+loadSong(currentSongIndex, false);
 });
