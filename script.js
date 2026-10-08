@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Ismi Khoirunnisa", 
           role: "Wakosma",
           gender: "P",
-          foto: "", 
+          foto: "assets/images/individu/ismi.jpg", 
           avatar: "Ismi",
           ig: "https://www.instagram.com/bebelove_88/" 
         },
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Alvina Suharyati", 
           role: "PJ Ilmu Tauhid", 
          gender: "P",
-          foto: "", 
+          foto: "assets/images/individu/vina.jpg", 
          avatar: "Vina",
           ig: "https://www.instagram.com/alvnn_2813/"
         },
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Nida Azkia",
           role: "PJ PKN", 
          gender: "P",
-          foto: "",
+          foto: "assets/images/individu/nida.jpg",
          avatar: "Nida",
           ig: "https://www.instagram.com/nida_azkiaa/"
         },
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Tasya Ayu L.",
           role: "PJ B. Indonesia",
          gender: "P", 
-          foto: "",
+          foto: "assets/images/individu/tasya.jpg",
          avatar: "Tasya",
           ig: "https://www.instagram.com/tvs_y_l/"
         },
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Khumaira Nur Aulia P.", 
           role: "PJ PPTQ", 
          gender: "P",
-          foto: "",
+          foto: "assets/images/individu/khumaira.jpg",
          avatar: "Khumaira ",
           ig: ""
         },
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Adib Taufiqul H. S.", 
           role: "",
          gender: "L",
-          foto: "",
+          foto: "assets/images/individu/adib.jpg",
          avatar: "Adib",
           ig: "https://www.instagram.com/adibtaufiqulhakimsyah/"
         },
