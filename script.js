@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Yasin Faturrahman", 
           role: "PJ Tahsin & Tahfidz",
          gender: "L",
-          foto: "", 
+          foto: "assets/images/individu/yasin.jpg", 
          avatar: "Yasin",
           ig: "https://www.instagram.com/yssnfthrrhmn/" 
         },
