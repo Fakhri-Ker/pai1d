@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Risma Komala", 
           role: "Sekretaris 1", 
           gender: "P",
-          foto: "",
+          foto: "assets/images/individu/risma.jpg",
           avatar: "Risma",
           ig: "https://www.instagram.com/rsmllaa4/"
         },
