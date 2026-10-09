@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { nama: "Alice Aurellia A.",
           role: "Bendahara 1",
           gender: "P",
-          foto: "", 
+          foto: "assets/images/individu/alice.jpg", 
           avatar: "Alice",
           ig: "https://www.instagram.com/al_aurellia/"
         },
