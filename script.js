@@ -1,48 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. MENU HAMBURGER
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
-            const isOpen = navLinks.classList.toggle("active");
-            hamburger.setAttribute("aria-expanded", isOpen);
-        });
-
-        document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.setAttribute("aria-expanded", "false");
-            });
-        });
-    }
 
     // SIDEBAR & NAVIGASI BARU
+
 const sidebar = document.getElementById("sidebar");
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const backdrop = document.getElementById("sidebarBackdrop");
 const pageTitle = document.getElementById("pageTitle");
+const mainContent = document.querySelector(".main-content");
+const topbar = document.querySelector(".topbar");
 
-function toggleSidebar(forceClose = false) {
-    if (!sidebar || !backdrop) return;
+function isMobile() {
+    return window.matchMedia("(max-width: 768px)").matches;
+}
 
-    const shouldOpen =
-        !forceClose && !sidebar.classList.contains("open");
+function closeSidebar() {
+    if (!sidebar) return;
 
-    sidebar.classList.toggle("open", shouldOpen);
-    backdrop.classList.toggle("show", shouldOpen);
+    if (isMobile()) {
+        sidebar.classList.remove("open");
+        if (backdrop) backdrop.classList.remove("show");
+    } else {
+        sidebar.classList.add("collapsed");
+        if (mainContent) {
+            mainContent.classList.add("sidebar-collapsed");
+        }
+        if (topbar) {
+            topbar.classList.add("sidebar-collapsed");
+        }
+    }
 
     if (mobileMenuBtn) {
-        mobileMenuBtn.setAttribute("aria-expanded", String(shouldOpen));
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+    }
+}
+
+function openSidebar() {
+    if (!sidebar) return;
+
+    if (isMobile()) {
+        sidebar.classList.add("open");
+        if (backdrop) backdrop.classList.add("show");
+    } else {
+        sidebar.classList.remove("collapsed");
+        if (mainContent) {
+            mainContent.classList.remove("sidebar-collapsed");
+        }
+        if (topbar) {
+            topbar.classList.remove("sidebar-collapsed");
+        }
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
     }
 }
 
 if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener("click", () => toggleSidebar());
+    mobileMenuBtn.addEventListener("click", () => {
+        const isClosed = isMobile()
+            ? !sidebar.classList.contains("open")
+            : sidebar.classList.contains("collapsed");
+
+        if (isClosed) {
+            openSidebar();
+        } else {
+            closeSidebar();
+        }
+    });
 }
 
 if (backdrop) {
-    backdrop.addEventListener("click", () => toggleSidebar(true));
+    backdrop.addEventListener("click", closeSidebar);
 }
 
 document.querySelectorAll(".sidebar-nav a").forEach(link => {
@@ -53,15 +81,27 @@ document.querySelectorAll(".sidebar-nav a").forEach(link => {
 
         link.classList.add("active");
 
-        const heading = link.textContent.trim()
+        const heading = link.textContent
             .replace("Coming Soon", "")
             .trim();
 
         if (pageTitle) pageTitle.textContent = heading;
 
-        toggleSidebar(true);
+        if (isMobile()) closeSidebar();
     });
 });
+
+window.addEventListener("resize", () => {
+    if (isMobile()) {
+        sidebar?.classList.remove("collapsed");
+        mainContent?.classList.remove("sidebar-collapsed");
+        topbar?.classList.remove("sidebar-collapsed");
+    } else {
+        sidebar?.classList.remove("open");
+        backdrop?.classList.remove("show");
+    }
+});
+
 
 // MODE GELAP
 const themeToggle = document.getElementById("themeToggle");
