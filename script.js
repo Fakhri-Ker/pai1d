@@ -17,6 +17,84 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // SIDEBAR & NAVIGASI BARU
+const sidebar = document.getElementById("sidebar");
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const backdrop = document.getElementById("sidebarBackdrop");
+const pageTitle = document.getElementById("pageTitle");
+
+function toggleSidebar(forceClose = false) {
+    if (!sidebar || !backdrop) return;
+
+    const shouldOpen =
+        !forceClose && !sidebar.classList.contains("open");
+
+    sidebar.classList.toggle("open", shouldOpen);
+    backdrop.classList.toggle("show", shouldOpen);
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.setAttribute("aria-expanded", String(shouldOpen));
+    }
+}
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener("click", () => toggleSidebar());
+}
+
+if (backdrop) {
+    backdrop.addEventListener("click", () => toggleSidebar(true));
+}
+
+document.querySelectorAll(".sidebar-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelectorAll(".sidebar-nav a").forEach(item => {
+            item.classList.remove("active");
+        });
+
+        link.classList.add("active");
+
+        const heading = link.textContent.trim()
+            .replace("Coming Soon", "")
+            .trim();
+
+        if (pageTitle) pageTitle.textContent = heading;
+
+        toggleSidebar(true);
+    });
+});
+
+// MODE GELAP
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeLabel = document.getElementById("themeLabel");
+
+function updateThemeButton() {
+    const isDark = document.body.classList.contains("dark-mode");
+
+    if (themeIcon) themeIcon.textContent = isDark ? "☀" : "☾";
+    if (themeLabel) themeLabel.textContent =
+        isDark ? "Mode Terang" : "Mode Gelap";
+}
+
+if (localStorage.getItem("pai1dTheme") === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+updateThemeButton();
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        const theme = document.body.classList.contains("dark-mode")
+            ? "dark"
+            : "light";
+
+        localStorage.setItem("pai1dTheme", theme);
+        updateThemeButton();
+    });
+}
+
     // 2. DATA ANGGOTA KELAS
     const anggota = [
         { nama: "Febri Harun",
@@ -363,6 +441,189 @@ if (container) {
                     `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(person.avatar)}&topType=ShortHairShortWaved`;
             }
         }
+
+        // PENCARIAN ANGGOTA
+const memberSearch = document.getElementById("memberSearch");
+const memberSearchCount = document.getElementById("memberSearchCount");
+
+function filterMembers() {
+    if (!container) return;
+
+    const query = (memberSearch?.value || "")
+        .trim()
+        .toLocaleLowerCase("id");
+
+    let visible = 0;
+
+    container.querySelectorAll(".member-card").forEach(card => {
+        const matches = card.textContent
+            .toLocaleLowerCase("id")
+            .includes(query);
+
+        card.hidden = !matches;
+
+        if (matches) visible++;
+    });
+
+    if (memberSearchCount) {
+        memberSearchCount.textContent =
+            `${visible} dari ${anggota.length} anggota`;
+    }
+}
+
+if (memberSearch) {
+    memberSearch.addEventListener("input", filterMembers);
+    filterMembers();
+}
+
+        // =========================
+// KALENDER TUGAS PAI 1D
+// =========================
+
+const tasks = [
+    /*
+    Contoh format tugas — hapus tanda komentar
+    dan ganti dengan tugas yang benar.
+
+    {
+        id: "tugas-001",
+        mataKuliah: "SPIK",
+        judul: "Makalah Kelompok",
+        deadline: "2026-10-25",
+        link: "",
+        selesai: false
+    }
+    */
+];
+
+const taskList = document.getElementById("taskList");
+const taskTotal = document.getElementById("taskTotal");
+const taskPending = document.getElementById("taskPending");
+const taskUpcoming = document.getElementById("taskUpcoming");
+
+function getDaysRemaining(dateString) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const deadline = new Date(`${dateString}T00:00:00`);
+    return Math.ceil((deadline - today) / 86400000);
+}
+
+function formatDeadline(dateString) {
+    return new Date(`${dateString}T00:00:00`)
+        .toLocaleDateString("id-ID", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+}
+
+function renderTasks() {
+    if (!taskList) return;
+
+    const pending = tasks.filter(task => !task.selesai);
+
+    const upcoming = pending.filter(task => {
+        const days = getDaysRemaining(task.deadline);
+        return days >= 0 && days <= 7;
+    });
+
+    if (taskTotal) taskTotal.textContent = tasks.length;
+    if (taskPending) taskPending.textContent = pending.length;
+    if (taskUpcoming) taskUpcoming.textContent = upcoming.length;
+
+    if (tasks.length === 0) {
+        taskList.innerHTML = `
+            <div class="task-empty">
+                <h3>Belum ada tugas yang ditambahkan</h3>
+                <p>
+                    Daftar tugas akan muncul di sini setelah data
+                    dimasukkan ke dalam kalender tugas.
+                </p>
+            </div>
+        `;
+        return;
+    }
+
+    const sortedTasks = [...tasks].sort((a, b) =>
+        a.deadline.localeCompare(b.deadline)
+    );
+
+    taskList.innerHTML = sortedTasks.map(task => {
+        const days = getDaysRemaining(task.deadline);
+
+        let countdown;
+
+        if (task.selesai) {
+            countdown = "Tugas selesai";
+        } else if (days < 0) {
+            countdown = `Terlambat ${Math.abs(days)} hari`;
+        } else if (days === 0) {
+            countdown = "Deadline hari ini";
+        } else {
+            countdown = `${days} hari lagi`;
+        }
+
+        const safeLink = task.link &&
+            /^https?:\/\//i.test(task.link)
+            ? task.link
+            : "";
+
+        return `
+            <article class="task-card">
+                <h3>${escapeTaskText(task.judul)}</h3>
+                <p>Mata kuliah: ${escapeTaskText(task.mataKuliah)}</p>
+                <p>Deadline: ${formatDeadline(task.deadline)}</p>
+                <span class="task-status">${countdown}</span>
+
+                <br>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        data-task-id="${escapeTaskText(task.id)}"
+                        ${task.selesai ? "checked" : ""}
+                    >
+                    Tandai selesai
+                </label>
+
+                ${safeLink ? `
+                    <br>
+                    <a href="${safeLink}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Buka tautan tugas ↗
+                    </a>
+                ` : ""}
+            </article>
+        `;
+    }).join("");
+
+    taskList.querySelectorAll("[data-task-id]").forEach(input => {
+        input.addEventListener("change", () => {
+            const task = tasks.find(item =>
+                item.id === input.dataset.taskId
+            );
+
+            if (!task) return;
+
+            task.selesai = input.checked;
+            renderTasks();
+        });
+    });
+}
+
+function escapeTaskText(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+renderTasks();
 
         // Instagram
         let instagramHTML = "";
