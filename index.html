@@ -21,25 +21,65 @@
 </head>
 <body>
 
-<nav id="navbar">
-    <div class="logo">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
         <div class="logo-icon"><span>✦</span></div>
-        <span>PAI 1D</span>
+        <div>
+            <strong>PAI 1D</strong>
+            <small>Class Dashboard</small>
+        </div>
     </div>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#tentang">TENTANG</a></li>
-        <li><a href="#media">MEDIA</a></li>
-        <li><a href="#struktur">STRUKTUR</a></li>
-        <li><a href="#anggota">ANGGOTA</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-    </ul>
+    <button id="hamburger"
+            class="sidebar-toggle"
+            aria-label="Buka menu"
+            aria-expanded="false">
+        ☰
+    </button>
 
-    <div class="hamburger" id="hamburger" aria-label="Buka menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+    <nav class="sidebar-nav" id="navLinks">
+        <a href="#home" class="active">
+            <span>⌂</span> Dashboard
+        </a>
+        <a href="#struktur">
+            <span>♟</span> Struktur Kelas
+        </a>
+        <a href="#kalender-tugas">
+            <span>▦</span> Kalender Tugas
+        </a>
+        <a href="#anggota">
+            <span>♧</span> Anggota Kelas
+        </a>
+        <a href="#media">
+            <span>◎</span> Media Sosial
+        </a>
+        <a href="#gallery">
+            <span>▧</span> Galeri
+        </a>
+        <a href="#coming-soon">
+            <span>✦</span> Fitur Selanjutnya
+            <small class="coming-badge">Coming Soon</small>
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <button id="themeToggle" class="theme-toggle">
+            <span id="themeIcon">☾</span>
+            <span id="themeLabel">Mode Gelap</span>
+        </button>
+
+        <p>Belajar • Berproses • Bersama</p>
     </div>
-</nav>
+</aside>
+
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<header class="topbar">
+    <button id="mobileMenuBtn" aria-label="Buka navigasi">☰</button>
+    <span>PAI 1D / <strong id="pageTitle">Dashboard</strong></span>
+</header>
+
+<main class="main-content">
 
 <section id="home" class="hero">
     <div class="hero-pattern"></div>
@@ -48,6 +88,35 @@
         <span class="badge">OFFICIAL WEBSITE</span>
         <h1>WELCOME TO<br><span>PAI 1D</span></h1>
         <p>"Jadikan setiap hari sebuah petualangan. Raih impian, ukir prestasi!"</p>
+    </div>
+</section>
+
+<section id="kalender-tugas" class="section">
+    <div class="reveal">
+        <span class="section-kicker">ACADEMIC PLANNER</span>
+        <h2 class="section-title">KALENDER TUGAS</h2>
+        <p class="section-desc">
+            Pantau tugas dan deadline kelas agar tidak terlewat.
+        </p>
+    </div>
+
+    <div class="task-summary">
+        <div class="task-summary-card">
+            <span>Total Tugas</span>
+            <strong id="taskTotal">0</strong>
+        </div>
+        <div class="task-summary-card">
+            <span>Belum Selesai</span>
+            <strong id="taskPending">0</strong>
+        </div>
+        <div class="task-summary-card">
+            <span>Deadline 7 Hari</span>
+            <strong id="taskUpcoming">0</strong>
+        </div>
+    </div>
+
+    <div class="task-list" id="taskList">
+        <p>Memuat daftar tugas...</p>
     </div>
 </section>
 
@@ -120,7 +189,15 @@
         <h2 class="section-title">ANGGOTA KELAS</h2>
         <p class="section-desc">Temukan daftar anggota kelas kami dan peran yang dimiliki dalam berbagai kegiatan pembelajaran.</p>
     </div>
-
+<div class="member-search">
+    <input
+        type="search"
+        id="memberSearch"
+        placeholder="Cari nama anggota atau jabatan..."
+        aria-label="Cari anggota kelas"
+    >
+    <span id="memberSearchCount">35 anggota</span>
+</div>
     <div class="members-grid reveal" id="members-container"></div>
 </section>
 
@@ -134,6 +211,18 @@
     <div id="gallery-container" class="reveal"></div>
 </section>
 
+    <section id="coming-soon" class="section">
+    <div class="coming-card reveal">
+        <span class="section-kicker">WHAT'S NEXT?</span>
+        <h2 class="section-title">FITUR SELANJUTNYA</h2>
+        <p class="section-desc">
+            Kami sedang menyiapkan fitur baru untuk membuat
+            website PAI 1D semakin bermanfaat.
+        </p>
+        <span class="coming-badge">COMING SOON</span>
+    </div>
+</section>
+    
 <footer id="footer">
     <div class="footer-decoration"></div>
     <div class="footer-content">
